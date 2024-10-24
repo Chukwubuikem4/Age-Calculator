@@ -7,6 +7,12 @@ const button = document.querySelector('button');
 
 // Show Results
 const showResults = () =>{
+    const isValid = getFormErrors();
+
+    if(!isValid){
+        return
+    };
+
     const todaysDate = new Date(Date.now());
 
     const birthYear = year_input.value;
@@ -42,21 +48,26 @@ const showResults = () =>{
 
 // Form validation
 const getFormErrors = () =>{
+    const hasErrors = false;
+
     const yearValue = year_input.value.trim();
     const monthValue = month_input.value.trim();
     const dayValue = day_input.value.trim();
     
     // Empty input error validation
     if(yearValue === "" || yearValue === null){
-        setErrorFor(year_input, "This Field is required")
+        setErrorFor(year_input, "This Field is required");
+        hasErrors = true;
     }
 
     if(monthValue === "" || monthValue === null){
-        setErrorFor(month_input, "This Field is required")
+        setErrorFor(month_input, "This Field is required");
+        hasErrors = true;
     }
 
     if(dayValue === "" || dayValue === null){
-        setErrorFor(day_input, "This Field is required")
+        setErrorFor(day_input, "This Field is required");
+        hasErrors = true;
     }
 
     // Invalid Error Validation
@@ -65,19 +76,25 @@ const getFormErrors = () =>{
     const maxDaysInAMonth = new Date(yearValue, monthValue, 0).getDate();
 
     if(yearValue > todaysDate.getFullYear()){
-        setErrorFor(year_input, "Must be in the past")
+        setErrorFor(year_input, "Must be in the past");
+        hasErrors  = true;
     }
 
     if (monthValue < 1 || monthValue >12){
-        setErrorFor(month_input, "Must be a valid month")
+        setErrorFor(month_input, "Must be a valid month");
+        hasErrors = true;
     }
 
     if(dayValue < 1 || dayValue > maxDaysInAMonth){
-        setErrorFor(day_input, "Must be a valid day")
+        setErrorFor(day_input, "Must be a valid day");
+        hasErrors = true;
     }
+
+    return !hasErrors;
 }
 
 const setErrorFor = (input, message) =>{
+
     input.classList.add('error-border');
     
     const formControl = input.parentElement;
@@ -88,7 +105,6 @@ const setErrorFor = (input, message) =>{
     const errorMessage = formControl.querySelector('#error-msg');
     errorMessage.innerText = message;
     errorMessage.classList.add('error-msg');
-    
     
 }
 
