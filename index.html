@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+
+<body>
+
+  <div id="container" class="bg-offWhite w-screen h-screen flex justify-center items-center">
+    <div id="card" class="w-11/12 md:w-2/3 lg:w-5/7 xl:w-6/12 bg-white rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-3xl p-4 md:p-8 pb-12 mx-auto">
+
+      <div id="content-container" class="w-full">
+
+        <form action="#" class="flex flex-row space-x-4 md:space-x-7 justify-start lg:w-9/12 pb-16 xl:pb-0 ">
+  
+          <div id="form-control" class="flex flex-col">
+            <label id="label" for="day" class="text-sm font-bold uppercase">Day</label>
+            <input type="text" name="day" id="day" placeholder="DD" class="outline-none border border-offWhite p-5 font-bold rounded-md w-full ">
+            <span id="error-msg"></span>
+          </div>
+    
+          <div id="form-control" class="flex flex-col lg:w-7/12">
+            <label id="label" for="month" class="text-sm font-bold uppercase">Month</label>
+            <input type="text" name="month" id="month" placeholder="MM" class="outline-none border border-offWhite p-5 font-bold rounded-md w-full">
+            <span id="error-msg"></span>
+          </div>
+    
+          <div id="form-control" class="flex flex-col lg:w-7/12">
+            <label id="label" for="year" class="text-sm font-bold uppercase">Year</label>
+            <input type="text" name="year" id="year" placeholder="YYYY" class="outline-none border border-offWhite p-5 font-bold rounded-md w-full">
+            <span id="error-msg"></span>
+          </div>
+        </form>
+
+        <!-- button -->
+        <div id="button-container" class="flex flex-row items-center relative lg:static">
+          <span class="border-t-2 border-offWhite w-full"></span>
+          <button class="bg-purple rounded-full p-4 flex left-50 lg:static">
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+          </button>
+        </div>
+
+        <!-- Results -->
+        <div id="results" class="pt-16 xl:pt-0">
+
+          <!-- years result -->
+          <div id="years-results" class="flex items-center">
+            <p class="text-purple font-bold text-5xl md:text-6xl  lg:text-7xl xl:text-8xl italic">--</p>
+            <p class="text-offBlack font-bold text-5xl md:text-6xl  lg:text-7xl xl:text-8xl italic">years</p>
+          </div>
+
+          <!-- month result -->
+          <div id="months-results" class="flex items-center">
+            <p class="text-purple font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">--</p>
+            <p class="text-offBlack font-bold text-5xl md:text-6xl  lg:text-7xl xl:text-8xl italic">months</p>
+          </div>
+
+          <!-- days result -->
+          <div id="days-results" class="flex items-center">
+            <p class="text-purple font-bold text-5xl md:text-6xl  lg:text-7xl xl:text-8xl italic">--</p>
+            <p class="text-offBlack font-bold text-5xl md:text-6xl  lg:text-7xl xl:text-8xl italic">days</p>
+          </div>
+
+        </div>
+        
+      </div>
+
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
