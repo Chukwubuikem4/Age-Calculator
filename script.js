@@ -4,15 +4,10 @@ const month_input = document.querySelector('#month');
 const day_input = document.querySelector('#day');
 const button = document.querySelector('button');
 
+let hasErrors = false;
 
 // Show Results
 const showResults = () =>{
-    const isValid = getFormErrors();
-
-    if(!isValid){
-        return
-    };
-
     const todaysDate = new Date(Date.now());
 
     const birthYear = year_input.value;
@@ -48,8 +43,6 @@ const showResults = () =>{
 
 // Form validation
 const getFormErrors = () =>{
-    const hasErrors = false;
-
     const yearValue = year_input.value.trim();
     const monthValue = month_input.value.trim();
     const dayValue = day_input.value.trim();
@@ -77,7 +70,7 @@ const getFormErrors = () =>{
 
     if(yearValue > todaysDate.getFullYear()){
         setErrorFor(year_input, "Must be in the past");
-        hasErrors  = true;
+        hasErrors = true;
     }
 
     if (monthValue < 1 || monthValue >12){
@@ -94,7 +87,6 @@ const getFormErrors = () =>{
 }
 
 const setErrorFor = (input, message) =>{
-
     input.classList.add('error-border');
     
     const formControl = input.parentElement;
